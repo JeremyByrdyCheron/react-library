@@ -19,7 +19,7 @@ const LikeButton = ({ likeAmount }) => {
     <div>
       <button onClick={handleLike}>
         {likes}
-        {isLiked ? "❤️" : "🤍"}
+        {isLiked ? "❤︎" : "♡"}
       </button>
     </div>
   );

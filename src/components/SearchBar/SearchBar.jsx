@@ -1,13 +1,26 @@
 import "./SearchBar.css";
 
-const SearchBar = ({ filterText, setFilterText }) => {
+const SearchBar = ({ filterText, setFilterText, books, setFilterCategory }) => {
+  const bookGenres = [...new Set(books.map((book) => book.genre))];
   return (
-    <input
-      type="text"
-      id="searchbar"
-      onChange={(e) => setFilterText(e.target.value)}
-      value={filterText}
-    />
+    <form>
+      <input
+        type="text"
+        id="searchbar"
+        onChange={(e) => setFilterText(e.target.value)}
+        value={filterText}
+      />
+
+      <select
+        name="genrefilter"
+        id="genrefilter"
+        onChange={(e) => setFilterCategory(e.target.value)}
+      >
+        {bookGenres.map((bookGenres) => (
+          <option value={bookGenres}>{bookGenres}</option>
+        ))}
+      </select>
+    </form>
   );
 };
 

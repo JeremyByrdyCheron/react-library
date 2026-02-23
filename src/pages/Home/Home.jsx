@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Book from "../../components/Book/Book";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const livresInitiaux = [
@@ -67,16 +69,39 @@ const Home = () => {
       favorite: true,
     },
   ];
-  return livresInitiaux.map((book) => (
-    <Book
-      id={book["id"]}
-      name={book["nom"]}
-      description={book["description"]}
-      genre={book["genre"]}
-      like={book["like"]}
-      favorite={book["favorite"]}
-    />
-  ));
+
+  const [filterText, setFilterText] = useState("");
+
+  const [filterCategory, setFilterCategory] = useState("");
+
+  const filteredBooks = livresInitiaux.filter(
+    (book) =>
+      book["nom"].toLowerCase().includes(filterText.toLowerCase()) &&
+      (filterCategory === "" ||
+        book["genre"].toLowerCase() === filterCategory.toLowerCase()),
+  );
+
+  return (
+    <div>
+      <SearchBar
+        filterText={filterText}
+        setFilterText={setFilterText}
+        setFilterCategory={setFilterCategory}
+        books={livresInitiaux}
+      />
+      {filteredBooks.map((book) => (
+        <Book
+          id={book["id"]}
+          name={book["nom"]}
+          description={book["description"]}
+          genre={book["genre"]}
+          like={book["like"]}
+          favorite={book["favorite"]}
+          key={book["id"]}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default Home;
