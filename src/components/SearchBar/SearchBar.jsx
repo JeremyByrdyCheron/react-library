@@ -22,6 +22,15 @@ const SearchBar = ({ filterText, setFilterText, books, setFilterCategory }) => {
           <option value={bookGenres}>{bookGenres}</option>
         ))}
       </select>
+      <button
+        type="button"
+        onClick={(e) => {
+          setFilterText("");
+          setFilterCategory("");
+        }}
+      >
+        Réinitialiser les filtres
+      </button>
     </form>
   );
 };

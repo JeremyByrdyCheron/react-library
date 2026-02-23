@@ -1,20 +1,9 @@
 import "./FavoriteButton.css";
-import React, { useState } from "react";
 
-const FavoriteButton = ({ favorite }) => {
-  const [isFavorite, setIsFavorite] = useState(favorite);
-
-  const handleFavorite = () => {
-    if (isFavorite) {
-      setIsFavorite(false);
-    } else {
-      setIsFavorite(true);
-    }
-  };
-
+const FavoriteButton = ({ favorite, onToggle }) => {
   return (
     <div>
-      <button onClick={handleFavorite}>{isFavorite ? "★" : "☆"}</button>
+      <button onClick={onToggle}>{favorite ? "★" : "☆"}</button>
     </div>
   );
 };
