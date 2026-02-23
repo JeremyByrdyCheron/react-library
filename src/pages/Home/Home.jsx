@@ -40,7 +40,7 @@ const Home = () => {
       description: "Les aventures d'un jeune sorcier",
       genre: "Fantasy",
       like: 200,
-      favorite: false,
+      favorite: true,
     },
     {
       id: 6,
