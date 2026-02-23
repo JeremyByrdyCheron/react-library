@@ -16,6 +16,8 @@ const SearchBar = ({ filterText, setFilterText, books, setFilterCategory }) => {
         id="genrefilter"
         onChange={(e) => setFilterCategory(e.target.value)}
       >
+        <option value="">Aucune catégorie</option>
+
         {bookGenres.map((bookGenres) => (
           <option value={bookGenres}>{bookGenres}</option>
         ))}
