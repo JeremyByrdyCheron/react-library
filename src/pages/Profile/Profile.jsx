@@ -3,7 +3,7 @@ import Book from "../../components/Book/Book";
 import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-const Profile = ({ books, setBooks }) => {
+const Profile = ({ books, setBooks, darkMode }) => {
   const [filterText, setFilterText] = useState("");
 
   const [filterCategory, setFilterCategory] = useState("");
@@ -24,7 +24,7 @@ const Profile = ({ books, setBooks }) => {
   }, [books]);
 
   return (
-    <div>
+    <div className={darkMode ? "dark" : "light"}>
       <h1>Bienvenue sur la page Profile</h1>
 
       <SearchBar
@@ -34,6 +34,8 @@ const Profile = ({ books, setBooks }) => {
         books={books}
       />
       <Link to="/">Accueil</Link>
+      <Link to="/parameters">Paramètres</Link>
+
       {filteredFavoriteBooks.map((book) => (
         <Book
           id={book["id"]}
@@ -45,6 +47,7 @@ const Profile = ({ books, setBooks }) => {
           key={book["id"]}
           books={books}
           setBooks={setBooks}
+          darkMode={darkMode}
         />
       ))}
     </div>

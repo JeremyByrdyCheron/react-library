@@ -11,6 +11,7 @@ const Book = ({
   favorite,
   books,
   setBooks,
+  darkMode,
 }) => {
   const toggleFavorite = () => {
     const updatedBooks = books.map((book) =>
@@ -19,7 +20,7 @@ const Book = ({
     setBooks(updatedBooks);
   };
   return (
-    <div className="book" id={id}>
+    <div className={darkMode ? "book dark" : "book light"} id={id}>
       <h2>{name}</h2>
       <p> {description} </p>
       <p className="genre"> {genre} </p>
