@@ -10,7 +10,8 @@ const Home = ({ books, setBooks }) => {
 
   const filteredBooks = books.filter(
     (book) =>
-      book["nom"].toLowerCase().includes(filterText.toLowerCase()) &&
+      (book["nom"].toLowerCase().includes(filterText.toLowerCase()) ||
+        book["description"].toLowerCase().includes(filterText.toLowerCase())) &&
       (filterCategory === "" ||
         book["genre"].toLowerCase() === filterCategory.toLowerCase()),
   );

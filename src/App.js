@@ -1,7 +1,7 @@
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile/Profile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [books, setBooks] = useState([
@@ -70,6 +70,22 @@ function App() {
       favorite: true,
     },
   ]);
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favoriteBooks");
+
+    if (storedFavorites !== null) {
+      const favoriteIds = storedFavorites.split(",");
+
+      setBooks((prevBooks) =>
+        prevBooks.map((book) => ({
+          ...book,
+          favorite: favoriteIds.includes(String(book["id"])),
+        })),
+      );
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
