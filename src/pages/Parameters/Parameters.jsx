@@ -8,9 +8,13 @@ const Parameters = ({ darkMode, setDarkMode }) => {
   };
 
   return (
-    <div>
-      <Link to="/profile">Profil</Link>
-      <Link to="/">Accueil</Link>
+    <div className={darkMode ? "dark parameters" : "light parameters"}>
+      <h1>Paramètres</h1>
+      <nav className="links">
+        <Link to="/profile">Profil</Link>
+        <Link to="/parameters">Paramètres</Link>
+        <Link to="/">Accueil</Link>
+      </nav>
 
       <form>
         <label htmlFor="toggleDark">Mode sombre</label>

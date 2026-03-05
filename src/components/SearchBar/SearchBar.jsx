@@ -3,7 +3,7 @@ import "./SearchBar.css";
 const SearchBar = ({ filterText, setFilterText, books, setFilterCategory }) => {
   const bookGenres = [...new Set(books.map((book) => book.genre))];
   return (
-    <form>
+    <form className="searchForm">
       <input
         type="text"
         id="searchbar"
@@ -19,7 +19,9 @@ const SearchBar = ({ filterText, setFilterText, books, setFilterCategory }) => {
         <option value="">Aucune catégorie</option>
 
         {bookGenres.map((bookGenres) => (
-          <option value={bookGenres}>{bookGenres}</option>
+          <option key={bookGenres} value={bookGenres}>
+            {bookGenres}
+          </option>
         ))}
       </select>
       <button

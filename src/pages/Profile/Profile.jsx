@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import "./Profile.css";
 import Book from "../../components/Book/Book";
 import { useEffect, useState } from "react";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Profile = ({ books, setBooks, darkMode }) => {
   const [filterText, setFilterText] = useState("");
@@ -24,17 +24,14 @@ const Profile = ({ books, setBooks, darkMode }) => {
   }, [books]);
 
   return (
-    <div className={darkMode ? "dark" : "light"}>
-      <h1>Bienvenue sur la page Profile</h1>
-
-      <SearchBar
+    <div className={darkMode ? "dark profile" : "light profile"}>
+      <h1>Profil</h1>
+      <NavBar
         filterText={filterText}
         setFilterText={setFilterText}
         setFilterCategory={setFilterCategory}
         books={books}
       />
-      <Link to="/">Accueil</Link>
-      <Link to="/parameters">Paramètres</Link>
 
       {filteredFavoriteBooks.map((book) => (
         <Book

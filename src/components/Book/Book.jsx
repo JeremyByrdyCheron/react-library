@@ -24,8 +24,10 @@ const Book = ({
       <h2>{name}</h2>
       <p> {description} </p>
       <p className="genre"> {genre} </p>
-      <LikeButton likeAmount={like} />
-      <FavoriteButton favorite={favorite} onToggle={toggleFavorite} />
+      <div className="like-buttons">
+        <LikeButton likeAmount={like} />
+        <FavoriteButton favorite={favorite} onToggle={toggleFavorite} />
+      </div>
     </div>
   );
 };

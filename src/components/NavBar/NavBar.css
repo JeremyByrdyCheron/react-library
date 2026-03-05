@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.navbar .links {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .links {
+    margin-top: 15px;
+  }
+}

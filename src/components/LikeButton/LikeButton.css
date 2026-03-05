@@ -1,0 +1,16 @@
+button {
+  background: none;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dark button {
+  border-color: #57606f;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.9);
+}

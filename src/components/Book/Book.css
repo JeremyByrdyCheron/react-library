@@ -1,10 +1,32 @@
 .book {
+  padding: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
 }
 
-.book.dark {
-  border: 2px solid white;
-  border-radius: 10px;
+.light.book {
+  background: white;
+  border-color: #eee;
+}
+.dark.book {
+  background: #2f3542;
+  border-color: #3e4451;
+}
+
+.book h2 {
+  margin-top: 0;
+  color: #3742fa;
+}
+.dark.book h2 {
+  color: #70a1ff;
+}
+
+.genre {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aeb8c1;
+  margin-bottom: 15px;
 }

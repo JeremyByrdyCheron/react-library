@@ -1,8 +1,7 @@
 import "./Home.css";
 import { useState } from "react";
 import Book from "../../components/Book/Book";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 
 const Home = ({ books, setBooks, darkMode }) => {
   const [filterText, setFilterText] = useState("");
@@ -19,16 +18,12 @@ const Home = ({ books, setBooks, darkMode }) => {
 
   return (
     <main className={darkMode ? "home dark" : "home light"}>
-      <nav>
-        <SearchBar
-          filterText={filterText}
-          setFilterText={setFilterText}
-          setFilterCategory={setFilterCategory}
-          books={books}
-        />
-        <Link to="/profile">Profil</Link>
-        <Link to="/parameters">Paramètres</Link>
-      </nav>
+      <NavBar
+        filterText={filterText}
+        setFilterText={setFilterText}
+        setFilterCategory={setFilterCategory}
+        books={books}
+      />
 
       <div className="books">
         {filteredBooks.map((book) => (
