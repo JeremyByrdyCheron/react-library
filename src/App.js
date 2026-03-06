@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile/Profile";
 import { useEffect, useState } from "react";
 import Parameters from "./pages/Parameters/Parameters";
@@ -90,15 +90,14 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkmode") !== null
       ? localStorage.getItem("darkmode")
-      : false,
+      : true,
   );
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/"
-          exact
           element={
             <Home books={books} setBooks={setBooks} darkMode={darkMode} />
           }
@@ -114,7 +113,7 @@ function App() {
           element={<Parameters darkMode={darkMode} setDarkMode={setDarkMode} />}
         ></Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
