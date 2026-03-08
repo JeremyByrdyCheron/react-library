@@ -32,21 +32,22 @@ const Profile = ({ books, setBooks, darkMode }) => {
         setFilterCategory={setFilterCategory}
         books={books}
       />
-
-      {filteredFavoriteBooks.map((book) => (
-        <Book
-          id={book["id"]}
-          name={book["nom"]}
-          description={book["description"]}
-          genre={book["genre"]}
-          like={book["like"]}
-          favorite={book["favorite"]}
-          key={book["id"]}
-          books={books}
-          setBooks={setBooks}
-          darkMode={darkMode}
-        />
-      ))}
+      <div className="books">
+        {filteredFavoriteBooks.map((book) => (
+          <Book
+            id={book["id"]}
+            name={book["nom"]}
+            description={book["description"]}
+            genre={book["genre"]}
+            like={book["like"]}
+            favorite={book["favorite"]}
+            key={book["id"]}
+            books={books}
+            setBooks={setBooks}
+            darkMode={darkMode}
+          />
+        ))}
+      </div>
     </div>
   );
 };

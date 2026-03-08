@@ -18,6 +18,7 @@ const Home = ({ books, setBooks, darkMode }) => {
 
   return (
     <main className={darkMode ? "home dark" : "home light"}>
+      <h1>Accueil</h1>
       <NavBar
         filterText={filterText}
         setFilterText={setFilterText}
